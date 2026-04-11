@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import LandingPage from './pages/LandingPage';
+import Dashboard from './pages/Dashboard';
+import PublicProfile from './pages/PublicProfile';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -26,21 +28,14 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
+          
+          {/* Public Profile Route */}
+          <Route path="/u/:username" element={<PublicProfile />} />
 
-          {/* Example of Dashboard, normally would be a separate component */}
+          {/* Dashboard Route */}
           <Route path="/dashboard" element={
             <ProtectedRoute>
-              <div className="flex h-screen items-center justify-center p-8 text-center flex-col gap-4">
-                <h1 className="text-4xl text-white font-light">Dashboard</h1>
-                <p className="text-slate-400">Welcome to your secure user area.</p>
-                <AuthContext.Consumer>
-                  {({ logout }) => (
-                    <button onClick={logout} className="text-primary-500 hover:text-primary-400 underline mt-4">
-                      Log Out
-                    </button>
-                  )}
-                </AuthContext.Consumer>
-              </div>
+              <Dashboard />
             </ProtectedRoute>
           } />
 

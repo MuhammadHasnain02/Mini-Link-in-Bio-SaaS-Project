@@ -26,6 +26,11 @@ const profileSchema = new mongoose.Schema(
       enum: ["light", "dark"],
       default: "light",
     },
+    socials: {
+      instagram: { type: String, default: "" },
+      youtube: { type: String, default: "" },
+      linkedin: { type: String, default: "" }
+    },
   },
   { 
     timestamps: true,
