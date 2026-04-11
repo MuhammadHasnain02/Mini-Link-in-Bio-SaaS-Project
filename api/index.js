@@ -35,9 +35,9 @@ app.get("/api/health", (_req, res) => {
 
 connectDB(); // Connect to MongoDB at startup (Mongoose buffers queries)
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
 
 // Only start the server if not in a serverless environment (e.g. Vercel)
 // if (process.env.NODE_ENV !== "production") {
