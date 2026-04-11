@@ -9,8 +9,8 @@ const Hero = () => {
       
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Header Block */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
-          Elevate Your Workflow with <span className="text-slate-300">Precision</span>.
+        <h1 className="google-sans text-5xl md:text-[68px] font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
+          More growth,  <span className="text-teal-500">Less work</span> Get your time back
         </h1>
         
         <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
@@ -27,17 +27,19 @@ const Hero = () => {
           </Button>
         </div>
         
-        {/* Extravagant Placeholder UI Image */}
+        {/* Extravagant UI Image Section */}
         <div className="mt-20 relative mx-auto max-w-5xl">
           <div className="rounded-2xl border border-slate-100 bg-white shadow-2xl shadow-slate-200/50 overflow-hidden ring-1 ring-slate-900/5 hover:-translate-y-1 transition-transform duration-500">
-            <div className="w-full h-[600px] bg-slate-50 flex flex-col items-center justify-center">
-               <span className="text-slate-400 font-mono text-sm tracking-widest mb-4">/assets/placeholder.png</span>
-               <div className="w-16 h-16 border-2 border-dashed border-slate-200 rounded-xl flex items-center justify-center">
-                  <span className="text-slate-300">+</span>
-               </div>
+            <div className="w-full h-auto min-h-[400px] md:h-[600px] bg-slate-50 flex flex-col items-center justify-center">
+              <img 
+                src={"../assets/hero.png"} 
+                alt="SaaS Linktree UI Preview" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

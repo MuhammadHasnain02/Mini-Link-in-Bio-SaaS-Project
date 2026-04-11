@@ -6,12 +6,13 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-slate-100">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
         {/* Logo Placeholder */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center transition-transform group-hover:scale-95">
             <span className="text-white font-bold text-xl leading-none">Y</span>
           </div>
-          <span className="font-semibold text-slate-900 tracking-tight text-lg">YOUR_BRAND</span>
+          <span className="font-semibold text-slate-900 tracking-tight text-lg">Mini Link In Bio SaaS</span>
         </Link>
         
         {/* Right Section */}
@@ -38,6 +39,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
+
       </div>
     </nav>
   );
