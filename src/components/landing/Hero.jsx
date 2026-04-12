@@ -1,5 +1,6 @@
 import Button from './Button';
 import { ArrowRight } from 'lucide-react';
+import heroImg from '../../public/hero.png';
 
 const Hero = () => {
   return (
@@ -12,7 +13,7 @@ const Hero = () => {
         <h1 className="google-sans text-5xl md:text-[68px] font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto">
           More growth,  <span className="text-teal-500">Less work</span> Get your time back
         </h1>
-        
+
         <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto font-light leading-relaxed">
           PROJECT_TAGLINE. Experience a radically clean interface designed to maximize your focus and unlock unprecedented productivity without the clutter.
         </p>
@@ -32,7 +33,7 @@ const Hero = () => {
           <div className="rounded-2xl border border-slate-100 bg-white shadow-2xl shadow-slate-200/50 overflow-hidden ring-1 ring-slate-900/5 hover:-translate-y-1 transition-transform duration-500">
             <div className="w-full h-auto min-h-[400px] md:h-[600px] bg-slate-50 flex flex-col items-center justify-center">
               <img 
-                src={"./hero.png"} 
+                src={heroImg} 
                 alt="Linktree UI Preview" 
                 className="w-full h-full object-cover"
               />
