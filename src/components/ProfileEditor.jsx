@@ -15,6 +15,39 @@ const ProfileEditor = ({ profile, onProfileUpdate, initialUsername }) => {
   
   const [isSaving, setIsSaving] = useState(false);
   const [isExist, setIsExist] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [previewImage, setPreviewImage] = useState(null);
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (!isExist || !profile?.username) {
+      toast.error('Please complete and create your profile first before uploading an image!');
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    setPreviewImage(objectUrl);
+    setIsUploading(true);
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+      const res = await api.post(`/profile/${profile.username}/image`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      toast.success('Profile picture updated successfully');
+      setFormData(prev => ({ ...prev, profileImage: res.data.secure_url }));
+      onProfileUpdate(res.data.profile);
+    } catch (error) {
+      toast.error('Failed to upload image. Please try again.');
+      setPreviewImage(null);
+    } finally {
+      setIsUploading(false);
+    }
+  };
 
   useEffect(() => {
     if (profile) {
@@ -75,14 +108,26 @@ const ProfileEditor = ({ profile, onProfileUpdate, initialUsername }) => {
       <h2 className="montserrat text-xl font-bold text-slate-800 mb-6">Profile Settings</h2>
       
       <div className="flex flex-col items-center mb-8">
-        <div className="w-24 h-24 bg-slate-100 rounded-full flex items-center justify-center border-2 border-dashed border-slate-300 text-slate-400 mb-3 overflow-hidden">
-          {profile?.profileImage ? (
-            <img src={profile.profileImage} alt="Profile" className="w-full h-full object-cover" />
+        <label className="relative w-24 h-24 bg-teal-50 rounded-full flex items-center justify-center border-2 border-dashed border-teal-300 text-teal-600 mb-3 overflow-hidden cursor-pointer hover:bg-teal-100 transition-colors group">
+          <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} disabled={isUploading} />
+          
+          {(previewImage || profile?.profileImage) ? (
+            <img src={previewImage || profile.profileImage} alt="Profile" className={`w-full h-full object-cover ${isUploading ? 'opacity-50' : 'opacity-100'}`} />
           ) : (
             <ImageIcon size={32} />
           )}
-        </div>
-        <p className="text-xs text-slate-500 font-medium bg-slate-100 px-3 py-1 rounded-full">Image upload coming soon</p>
+
+          {isUploading && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Loader2 size={24} className="animate-spin text-teal-700" />
+            </div>
+          )}
+          
+          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs font-semibold uppercase tracking-wider transition-opacity duration-200">
+            Edit
+          </div>
+        </label>
+        <p className="text-xs text-teal-600 font-medium bg-teal-50 border border-teal-100 px-3 py-1 rounded-full">Click avatar to upload</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -202,7 +247,7 @@ const ProfileEditor = ({ profile, onProfileUpdate, initialUsername }) => {
 
         <button
           type="submit"
-          disabled={isSaving}
+          disabled={isSaving || isUploading}
           className="w-full mt-6 bg-slate-800 hover:bg-slate-900 text-white font-medium py-3 rounded-lg shadow-sm transition-all active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-2 font-sans"
         >
           {isSaving ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />}
