@@ -76,6 +76,17 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 
+// Serverless Database Connection Middleware
+// Guarantees DB is successfully mapped before executing any endpoint.
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    res.status(500).json({ message: "Database connection failed over Serverless", error: error.message });
+  }
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/links", linkRoutes);
@@ -84,7 +95,7 @@ app.get("/api/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
-connectDB();
+// connectDB(); // Removed loose call as it's handled properly by the middleware
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
