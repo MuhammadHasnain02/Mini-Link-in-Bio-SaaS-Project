@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, Image as ImageIcon, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Loader2, Image as ImageIcon } from 'lucide-react';
+// import { Save, Loader2, Image as ImageIcon, Instagram, Youtube, Linkedin } from 'lucide-react';
 import api from '../services/api';
 import { toast } from 'react-hot-toast';
 
@@ -89,17 +90,26 @@ const PublicProfile = () => {
           <div className="flex items-center justify-center gap-4 mb-10">
             {profile.socials.instagram && (
               <a href={profile.socials.instagram} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${isDark ? 'bg-dark-800 text-slate-300 hover:text-white hover:bg-pink-500/20' : 'bg-slate-100 text-slate-600 hover:bg-pink-50 hover:text-pink-600'}`}>
-                <Instagram size={20} />
+                
+                {/* <Instagram size={20} /> */}
+                <i className="fa-brands fa-instagram"></i>
+                
               </a>
             )}
             {profile.socials.youtube && (
               <a href={profile.socials.youtube} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${isDark ? 'bg-dark-800 text-slate-300 hover:text-white hover:bg-red-500/20' : 'bg-slate-100 text-slate-600 hover:bg-red-50 hover:text-red-500'}`}>
-                <Youtube size={20} />
+                
+                {/* <Youtube size={20} /> */}
+                <i className="fa-brands fa-youtube"></i>
+                
               </a>
             )}
             {profile.socials.linkedin && (
               <a href={profile.socials.linkedin} target="_blank" rel="noopener noreferrer" className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${isDark ? 'bg-dark-800 text-slate-300 hover:text-white hover:bg-blue-500/20' : 'bg-slate-100 text-slate-600 hover:bg-blue-50 hover:text-blue-600'}`}>
-                <Linkedin size={20} />
+                
+                {/* <Linkedin size={20} /> */}
+                <i className="fa-brands fa-linkedin"></i>
+                
               </a>
             )}
           </div>

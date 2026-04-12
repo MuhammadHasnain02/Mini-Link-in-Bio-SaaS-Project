@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Save, Loader2, Image as ImageIcon, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Save, Loader2, Image as ImageIcon } from 'lucide-react';
+// import { Save, Loader2, Image as ImageIcon, Instagram, Youtube, Linkedin } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import api from '../services/api';
 
@@ -145,7 +146,11 @@ const ProfileEditor = ({ profile, onProfileUpdate, initialUsername }) => {
           <div className="space-y-3">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-pink-50 text-pink-500 flex items-center justify-center shrink-0">
-                <Instagram size={20} />
+                
+                {/* fontawesome */}
+                <i className="fa-brands fa-instagram"></i>
+                {/* <InstagramIcon size={20} /> */}
+
               </div>
               <input
                 type="url"
@@ -159,7 +164,11 @@ const ProfileEditor = ({ profile, onProfileUpdate, initialUsername }) => {
             
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-red-50 text-red-500 flex items-center justify-center shrink-0">
-                <Youtube size={20} />
+                
+                {/* fontawesome */}
+                <i className="fa-brands fa-youtube"></i>
+                {/* <YoutubeIcon size={20} /> */}
+
               </div>
               <input
                 type="url"
@@ -173,7 +182,11 @@ const ProfileEditor = ({ profile, onProfileUpdate, initialUsername }) => {
             
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                <Linkedin size={20} />
+                
+                {/* fontawesome */}
+                <i className="fa-brands fa-linkedin"></i>
+                {/* <LinkedinIcon size={20} /> */}
+
               </div>
               <input
                 type="url"
