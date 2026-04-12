@@ -17,8 +17,12 @@
       "destination": "api/index.js"
     },
     {
+      "source": "/assets/(.*)",
+      "destination": "src/dist/assets/$1"
+    },
+    {
       "source": "/(.*)",
-      "destination": "src/index.html"
+      "destination": "src/dist/index.html"
     }
   ]
 }
