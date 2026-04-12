@@ -1,6 +1,5 @@
 import "./env.js"; // MUST BE FIRST TO BEAT ESM HOISTING
 
-
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -15,7 +14,7 @@ const PORT = process.env.PORT || 5001;
 app.use(cors({ 
   origin: process.env.FRONTEND_URL || true,
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  methods: ["GET", "POST", "PUT", "PATCH" , "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 

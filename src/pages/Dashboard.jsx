@@ -7,6 +7,7 @@ import { toast } from 'react-hot-toast';
 import ProfileEditor from '../components/ProfileEditor';
 import AddLinkForm from '../components/AddLinkForm';
 import LinkList from '../components/LinkList';
+import Footer from '../components/landing/Footer';
 
 const Dashboard = () => {
   const { user, logout } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const Dashboard = () => {
   const initialUsername = user?.email?.split('@')[0] || '';
 
   useEffect(() => {
+
     // We assume the username might be the initialUsername if no profile returned yet.
     // However, if the user changed it previously, we wouldn't know it unless we search by userId.
     // Wait, since we don't have a userId on Profile, we are strictly tying profiles to username.
@@ -55,6 +57,7 @@ const Dashboard = () => {
     if (user) {
       fetchData();
     }
+
   }, [user, initialUsername]);
 
   const handleProfileUpdate = (updatedProfile) => {
@@ -223,7 +226,7 @@ const Dashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Column - Profile Settings (4 cols on lg) */}
-          <div className="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-24 max-h-[calc(100vh-8rem)]">
+          <div className="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-24 max-h-full">
             <ProfileEditor 
               profile={profile} 
               onProfileUpdate={handleProfileUpdate} 
@@ -258,7 +261,12 @@ const Dashboard = () => {
           </div>
 
         </div>
+
+        {/* Footer */}
+        <Footer />
+
       </main>
+
     </div>
   );
 };
