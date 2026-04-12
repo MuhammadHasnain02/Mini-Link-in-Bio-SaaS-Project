@@ -153,11 +153,12 @@ const Dashboard = () => {
       <nav className="bg-white border-b border-slate-200 sticky top-0 z-10 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
+            
             <div className="flex items-center gap-2 text-slate-800 flex-shrink-0">
-              <div className="w-8 h-8 bg-gradient-to-tr from-primary-600 to-primary-400 rounded-lg flex items-center justify-center shadow-md shadow-primary-500/20">
-                <LayoutDashboard size={18} className="text-white" />
+              <div className="w-8 h-8 bg-slate-900 rounded-lg flex items-center justify-center transition-transform group-hover:scale-95">
+                <span className="text-white font-bold text-xl leading-none">Y</span>
               </div>
-              <span className="montserrat font-bold text-xl tracking-tight hidden sm:block">Dashboard</span>
+              <span className="montserrat font-bold text-xl tracking-tight hidden sm:block">Link In Bio SaaS Dashboard</span>
             </div>
 
             <div className="flex items-center gap-4 overflow-hidden">
@@ -166,7 +167,7 @@ const Dashboard = () => {
                   href={`/u/${profile.username}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700 bg-primary-50 hover:bg-primary-100 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
+                  className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-teal-600 hover:text-teal-700 bg-primary-50 hover:bg-primary-100 px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
                 >
                   <ExternalLink size={14} />
                   linkin.bio/u/{profile.username}
@@ -185,6 +186,7 @@ const Dashboard = () => {
                 <LogOut size={18} />
               </button>
             </div>
+
           </div>
         </div>
       </nav>
@@ -243,7 +245,7 @@ const Dashboard = () => {
               </div>
               <button 
                 onClick={handleCopyLink}
-                className="flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-lg shadow-sm font-medium transition-colors google-sans focus:outline-none focus:ring-2 focus:ring-slate-900/50"
+                className="flex items-center justify-center gap-2 bg-teal-600 active:scale-[97%] cursor-pointer text-white px-5 py-2.5 rounded-lg shadow-sm font-medium transition-colors google-sans focus:outline-none focus:ring-2 focus:ring-slate-900/50"
               >
                 <Copy size={18} />
                 <span>Copy My Link</span>

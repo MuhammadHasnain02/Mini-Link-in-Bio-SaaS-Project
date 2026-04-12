@@ -45,7 +45,7 @@ const AddLinkForm = ({ onAddLink, isAdding }) => {
           <button
             type="submit"
             disabled={isAdding || !title || !url}
-            className="w-full md:w-auto h-[48px] px-6 bg-primary-600 hover:bg-primary-500 text-white font-medium rounded-lg shadow-md shadow-primary-500/10 transition-all active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-2 font-sans"
+            className="w-full md:w-auto h-[48px] px-6 bg-teal-600 hover:bg-teal-500 text-white font-medium rounded-lg shadow-md shadow-primary-500/10 transition-all active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none flex items-center justify-center gap-2 font-sans"
           >
             {isAdding ? <Loader2 size={18} className="animate-spin" /> : <Plus size={18} />}
             <span>Add Link</span>

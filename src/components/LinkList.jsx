@@ -88,7 +88,7 @@ const LinkList = ({ links, onToggle, onDelete, onEdit }) => {
             
             <div className="flex-1 min-w-0">
               <h4 className={`text-sm font-semibold truncate ${link.isActive ? 'text-slate-800' : 'text-slate-500'} google-sans`}>{link.title}</h4>
-              <a href={link.url} target="_blank" rel="noopener noreferrer" className="google-sans text-xs text-primary-500 hover:text-primary-600 hover:underline truncate block mt-0.5 max-w-[200px] sm:max-w-xs">{link.url}</a>
+              <a href={link.url} target="_blank" rel="noopener noreferrer" className="google-sans text-xs text-teal-500 hover:text-teal-600 hover:underline truncate block mt-0.5 max-w-[200px] sm:max-w-xs">{link.url}</a>
             </div>
 
             <div className="flex items-center gap-4 ml-auto">
@@ -100,7 +100,7 @@ const LinkList = ({ links, onToggle, onDelete, onEdit }) => {
               {/* Toggle Switch */}
               <button 
                 onClick={() => handleToggle(link._id)}
-                className={`w-11 h-6 rounded-full relative transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shrink-0 ${link.isActive ? 'bg-primary-500' : 'bg-slate-300'}`}
+                className={`w-11 h-6 rounded-full relative transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 shrink-0 ${link.isActive ? 'bg-teal-500' : 'bg-slate-300'}`}
                 role="switch"
                 aria-checked={link.isActive}
               >

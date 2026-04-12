@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 text-center">
         {/* Main Copyright Text */}
         <p className="font-['Google_Sans',_sans-serif] text-sm font-semibold tracking-wide text-slate-600">
-          © {new Date().getFullYear()} Mini Link In Bio SaaS. All rights reserved.
+          © {new Date().getFullYear()} Link In Bio SaaS. All rights reserved.
         </p>
         
         {/* Secondary Text */}

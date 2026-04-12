@@ -43,7 +43,7 @@ const Login = () => {
           <span className="text-white font-bold text-lg leading-none">Y</span>
         </div>
         <span className="font-bold text-slate-900 tracking-tight text-md montserrat hidden sm:block">
-          Logic × Layout
+          Link In Bio SaaS
         </span>
       </Link>
 

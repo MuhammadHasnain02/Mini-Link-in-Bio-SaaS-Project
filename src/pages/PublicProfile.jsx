@@ -214,7 +214,7 @@ const PublicProfile = () => {
         <span className={`font-semibold tracking-tight text-sm sm:text-base transition-colors duration-300 ${
           isDark ? 'text-slate-300 group-hover:text-white' : 'text-slate-700 group-hover:text-slate-900'
         }`}>
-          Mini Link
+          Link In Bio SaaS
         </span>
       </Link>
 
