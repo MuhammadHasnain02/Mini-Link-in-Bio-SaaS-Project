@@ -1,3 +1,4 @@
+// backend/app.js
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -5,8 +6,12 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Ye line manually .env ka path set karti hai
-dotenv.config({ path: path.join(__dirname, '.env') });
+// Local ke liye path check karega, Vercel par automatically process.env use karega
+dotenv.config(); 
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: path.join(__dirname, '.env') });
+}
 
 // import "dotenv/config";
 import express from "express";
@@ -18,8 +23,7 @@ import profileRoutes from "./routes/profileRoutes.js";
 import linkRoutes from "./routes/linkRoutes.js";
 
 const app = express();
-// const PORT = process.env.PORT || 5001;
-// const environment = process.env.NODE_ENV || 'development';
+const PORT = process.env.PORT || 5001;
 
 app.use(cors({ 
   origin: process.env.FRONTEND_URL || true,
@@ -41,11 +45,11 @@ app.get("/api/health", (_req, res) => {
 
 connectDB();
 
-// if (environment !== "production") {
-  // app.listen(PORT, () => {
-  //   console.log(`Server running on port ${PORT}`);
-  // });
-// }
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
 // Export the app instance for Vercel's serverless functions
 export default app;
