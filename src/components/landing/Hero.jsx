@@ -1,5 +1,6 @@
 import Button from './Button';
 import { ArrowRight } from 'lucide-react';
+import heroImg from '../../assets/hero.png';
 
 const Hero = () => {
   return (
@@ -32,7 +33,7 @@ const Hero = () => {
           <div className="rounded-2xl border border-slate-100 bg-white shadow-2xl shadow-slate-200/50 overflow-hidden ring-1 ring-slate-900/5 hover:-translate-y-1 transition-transform duration-500">
             <div className="w-full h-auto min-h-[400px] md:h-[600px] bg-slate-50 flex flex-col items-center justify-center">
               <img 
-                src={"hero.png"} 
+                src={heroImg} 
                 alt="Linktree UI Preview" 
                 className="w-full h-full object-cover"
               />
