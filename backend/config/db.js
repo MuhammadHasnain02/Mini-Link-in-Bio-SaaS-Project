@@ -15,6 +15,12 @@ const connectDB = async () => {
   }
   
   try {
+    if (!process.env.MONGO_URI) {
+      const errorMsg = "CRITICAL FAIL: MONGO_URI environment variable is missing!";
+      console.error(errorMsg);
+      throw new Error(errorMsg);
+    }
+
     console.log("Establishing new MongoDB connection...");
     const conn = await mongoose.connect(process.env.MONGO_URI, {
       serverSelectionTimeoutMS: 5000,
